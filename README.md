@@ -2,6 +2,8 @@
 
 Python engineering for a local-first AI workroom: bounded document retrieval, source-linked answers, deterministic calculations, and explicit handling of incomplete or unsupported results.
 
+Created and owned by Adolph White Jr., including the requirements, architecture, retrieval and source-verification design, and deterministic calculation checks. Built with the use of AI tools.
+
 The project explores a practical question: how much useful work can reliable software around a small local model perform on limited hardware? The architecture gives code responsibility for file access, source identity, structured output, record joins and arithmetic. A model can propose a narrow meaning judgment; a person retains the decision about its usefulness.
 
 This repository presents actual implementation from an ongoing engineering project, including a runnable synthetic source-paging check. It is a selected source showcase, rather than the complete workroom installation.
