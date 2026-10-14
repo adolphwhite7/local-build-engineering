@@ -12,7 +12,7 @@ The source-search methods in [development/wedding_request_app.py](development/we
 
 `page_sources` selects a slice from that existing ordering. Before returning it, `_inspected_passage` checks the inventory, current file digest, paragraph text and span. Earlier page contexts remain available for the questions already bound to them. Failed checks return a visible unresolved state.
 
-The [paging check](outputs/m4-source-paging-20261012/test_paging.py) creates thirteen synthetic paragraphs and verifies a five/five/three page sequence, backward navigation, source changes and invalid requests. Its test fixture constructs only the source-inspection part of the application; it does not pretend to boot the complete private workroom.
+The [paging check](outputs/m4-source-paging-20261012/test_paging.py) creates thirteen example paragraphs and verifies a five/five/three page sequence, backward navigation, source changes and invalid requests. Its test fixture constructs only the source-inspection part of the application; it does not pretend to boot the complete private workroom.
 
 ## 3. Prepare a narrow model question
 
@@ -23,6 +23,8 @@ The application accepts a caller through an explicit interface. It revalidates t
 ## 4. Check structure and attribution separately from meaning
 
 [harness/check.py](harness/check.py) checks output shape, allowed judgments and supporting text. [m1/scorer.py](m1/scorer.py) supplies deterministic output-contract scoring and quotation normalization.
+
+Example side-effect observations use the boolean `side_effects.example` field, with `observed_violation` and `no_violation` retaining their distinct meanings. Diagnostic passages use the `EXAMPLE-P01` identifier.
 
 A matching quotation establishes that the words came from the specified passage. It does not establish entailment, currentness or overall factual correctness. The application therefore reports a proposed meaning judgment rather than converting quotation verification into factual acceptance.
 
@@ -37,6 +39,8 @@ The development modules illustrate complementary work that does not require a la
 - [timeline.py](outputs/m4-operational-schedule-pair-20261011/timeline.py) performs same-day clock arithmetic over explicitly supplied ordered records and units.
 - [record_adapter.py](outputs/m4-dated-source-contract-20261011/record_adapter.py) composes source-linked records while retaining supplied declarations and validation boundaries.
 - [checked_view.py](development/checked_view.py) attaches independent calculation observations to presentation data, preserving original answers separately.
+
+The finance example declares its units with `All example amounts are inclusive USD.`; the parser also accepts `Every amount is inclusive illustrative USD.` Missing declarations remain unresolved.
 
 These modules intentionally work on bounded schemas. They are not general parsers of arbitrary prose or proof that every natural-language planning request can be completed.
 

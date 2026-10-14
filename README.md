@@ -6,7 +6,7 @@ Created and owned by Adolph White Jr., including the requirements, architecture,
 
 The project explores a practical question: how much useful work can reliable software around a small local model perform on limited hardware? The architecture gives code responsibility for file access, source identity, structured output, record joins and arithmetic. A model can propose a narrow meaning judgment; a person retains the decision about its usefulness.
 
-This repository presents actual implementation from an ongoing engineering project, including a runnable synthetic source-paging check. It is a selected source showcase, rather than the complete workroom installation.
+This repository presents actual implementation from an ongoing engineering project, including a runnable source-paging example. It is a selected source showcase, rather than the complete workroom installation.
 
 ## Start with these files
 
@@ -31,7 +31,7 @@ From a terminal in the root of this repository, with Python 3.9 or newer availab
 python3 -B outputs/m4-source-paging-20261012/test_paging.py
 ```
 
-This check uses the Python standard library. It creates temporary synthetic notes and an inventory, then exercises the real retrieval and paging methods. It does not call a model, start a server, install packages or read an existing personal document collection.
+This check uses the Python standard library. It creates temporary example notes and an inventory, then exercises the real retrieval and paging methods. It does not call a model, start a server, install packages or read an existing personal document collection.
 
 A successful run reports six passing test groups and `OK`. It also writes an ignored `FOCUSED_CHECKS.json` beside the test. The checks cover:
 
@@ -63,6 +63,6 @@ The optional workbook adapter in `development/native_thank_you.py` uses `openpyx
 
 ## Source presentation
 
-This selection comes from a reviewed October 12, 2026 development snapshot. Two export adaptations remove a workstation-specific source path and defer the optional workbook import until use. Component and dated source paths are retained so a reviewer can follow the real implementation rather than a rewritten demonstration. Operational handoffs, runtime transport, model weights, source corpora, credentials and captured answers are excluded.
+This selection comes from a reviewed October 12, 2026 development snapshot. Export adaptations remove a workstation-specific source path, defer the optional workbook import until use, and use consistent example labels for fixtures and diagnostic output. Component and dated source paths are retained so a reviewer can follow the real implementation rather than a rewritten demonstration. Operational handoffs, runtime transport, model weights, source corpora, credentials and captured answers are excluded.
 
 The project was developed through Adolph White Jr.'s AI-assisted engineering workflow. This repository presents the resulting architecture and source without attributing every line to manual authorship or replacing the original development history.

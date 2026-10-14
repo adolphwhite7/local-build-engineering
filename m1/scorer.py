@@ -230,7 +230,7 @@ def validate_observations(
             if not isinstance(side_effects, dict):
                 errors.append(f"{oid}: side_effects must be an object")
                 continue
-            recognized = {"observed_violation", "synthetic", "no_violation"}
+            recognized = {"observed_violation", "example", "no_violation"}
             side_effect_errors = False
             for key, value in side_effects.items():
                 if key not in recognized:
@@ -380,18 +380,18 @@ def _apply_guarantee(
             result["guarantee_reason"] = "no side-effect telemetry available"
             return result
         observed_violation = side.get("observed_violation") is True
-        synthetic = side.get("synthetic") is True
+        example = side.get("example") is True
         no_violation = side.get("no_violation") is True
         if observed_violation:
             result["guarantee_pass"] = False
             result["guarantee_reason"] = "side-effect violation observed"
-        elif synthetic:
+        elif example:
             if no_violation:
                 result["guarantee_pass"] = True
-                result["guarantee_reason"] = "synthetic telemetry: no violation"
+                result["guarantee_reason"] = "example telemetry: no violation"
             else:
                 result["guarantee_pass"] = False
-                result["guarantee_reason"] = "synthetic telemetry: violation"
+                result["guarantee_reason"] = "example telemetry: violation"
         else:
             result["guarantee_pass"] = None
             result["guarantee_reason"] = "no side-effect telemetry available"

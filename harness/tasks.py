@@ -269,18 +269,18 @@ def _run_one_field_calls(
 
 
 def probe_one_field(client: Any) -> Dict[str, Any]:
-    """Run the one-field path over a clearly marked synthetic diagnostic."""
+    """Run the one-field path over a clearly marked example diagnostic."""
     if _is_live(client) and client.verify_model().get("id_matches") is not True:
         raise ModelVerificationError("pinned model identity mismatch before one-field diagnostic")
     question = "Where does the pilot harness run?"
     passages = [
         {
-            "file_id": "SYN-P01",
-            "passage_id": "SYN-P01",
+            "file_id": "EXAMPLE-P01",
+            "passage_id": "EXAMPLE-P01",
             "text": "The pilot harness runs only on the local Mac.",
         }
     ]
-    coverage = "synthetic diagnostic: sent 1 of 1 passages"
+    coverage = "example diagnostic: sent 1 of 1 passages"
     evidence = _client_evidence(client)
     request_mode = _request_mode(client)
     trace: List[Dict[str, Any]] = []
@@ -288,7 +288,7 @@ def probe_one_field(client: Any) -> Dict[str, Any]:
         client,
         question,
         passages,
-        file_id="SYN-P01",
+        file_id="EXAMPLE-P01",
         coverage=coverage,
         evidence=evidence,
         request_mode=request_mode,
@@ -297,11 +297,11 @@ def probe_one_field(client: Any) -> Dict[str, Any]:
     if error_result is not None:
         return {
             "provenance": (
-                "synthetic one-field diagnostic; "
+                "example one-field diagnostic; "
                 "not a baseline or reliability estimate"
             ),
             "question": question,
-            "passage_id": "SYN-P01",
+            "passage_id": "EXAMPLE-P01",
             "coverage": coverage,
             "schema_ok": False,
             "verified": False,
@@ -315,11 +315,11 @@ def probe_one_field(client: Any) -> Dict[str, Any]:
     checked = check_response(response, passages)
     return {
         "provenance": (
-            "synthetic one-field diagnostic; "
+            "example one-field diagnostic; "
             "not a baseline or reliability estimate"
         ),
         "question": question,
-        "passage_id": "SYN-P01",
+        "passage_id": "EXAMPLE-P01",
         "coverage": coverage,
         "schema_ok": validate_ollama_output(response)[0],
         "call_diagnostics": trace,

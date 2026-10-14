@@ -81,7 +81,7 @@ def select(request,docs):
     settled,sr=one(close,r'The cost ledger is settled through ([A-Z][a-z]+ \d{1,2})\.')
     if date(settled[1],year)!=closedate:raise ValueError('Declared settlement period conflicts')
     for doc in [plan,close]:
-        if not re.search(r'All amounts are synthetic inclusive USD\.|Every amount is inclusive illustrative USD\.',doc['text']):raise ValueError('Declared inclusive USD units unavailable')
+        if not re.search(r'All example amounts are inclusive USD\.|Every amount is inclusive illustrative USD\.',doc['text']):raise ValueError('Declared inclusive USD units unavailable')
     return {'close':close,'close_tables':ct,'plan':plan,'plan_tables':pt,'year':year,'close_date':closedate,'plan_date':plandate,'owners':cm[2],'period_support':[cr,pr,fr,sr]}
 
 def assemble(request,docs):

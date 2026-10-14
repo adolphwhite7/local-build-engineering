@@ -73,7 +73,7 @@ def insurance(request,docs,original_request=None):
     used,ur=b.one(c,r'The ([A-Z][a-z]+ \d{1,2}) license work target was completed in this story and used the (\$[\d,.]+) allowance\. This later result does not make the appointment or (\d{4}) fee confirmed in the ([A-Z][a-z]+ \d{1,2}) documents\.')
     if used[2]!=fee[1] or used[3]!=fee[3] or used[4]!=fee[2]:raise ValueError('Later fee qualification conflicts')
     cert,cer=b.one(c,r'The couple.s insurance certificate was not acknowledged[^\n]+Cancellation coverage remained explicitly declined\.')
-    # Presentation follows the person's words, not the adapter's synthetic prefix.
+    # Presentation follows the person's words, not the adapter's example prefix.
     text=(original_request if original_request is not None else request).lower()
     fee_requested=bool(re.search(r'\b(?:fee|license)\b',text))
     coverage_requested=bool(re.search(r'\b(?:insurance|coverage)\b',text))

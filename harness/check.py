@@ -250,7 +250,7 @@ def check_response(
     """Check the parsed model response.
 
     Returns a result dictionary with R10 status in ``status`` and the
-    original synthetic parsed output preserved in ``model_output``.
+    original parsed output preserved in ``model_output``.
     """
     result: Dict[str, Any] = {
         "status": "unverified",

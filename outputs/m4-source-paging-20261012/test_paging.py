@@ -1,4 +1,4 @@
-"""Affected source paging checks; synthetic files, no target or model access."""
+"""Affected source paging checks; example files, no target or model access."""
 import copy,hashlib,json,sys,tempfile,unittest
 from pathlib import Path
 from unittest.mock import patch
@@ -51,5 +51,5 @@ class Paging(unittest.TestCase):
   self.inventory.write_text(self.inventory.read_text()+' ');self.assertEqual(self.app.page_sources(first['inspection_context_id'],0)['status'],'SOURCE_UNRESOLVED')
 if __name__=='__main__':
  suite=unittest.defaultTestLoader.loadTestsFromTestCase(Paging);result=unittest.TextTestRunner(verbosity=2).run(suite)
- (Path(__file__).parent/'FOCUSED_CHECKS.json').write_text(json.dumps({'status':'PASS' if result.wasSuccessful() else 'FAIL','groups':result.testsRun,'errors':len(result.errors),'failures':len(result.failures),'synthetic_files_only':True,'actual_model_calls':0,'target_operations':0},indent=2)+'\n')
+ (Path(__file__).parent/'FOCUSED_CHECKS.json').write_text(json.dumps({'status':'PASS' if result.wasSuccessful() else 'FAIL','groups':result.testsRun,'errors':len(result.errors),'failures':len(result.failures),'example_files_only':True,'actual_model_calls':0,'target_operations':0},indent=2)+'\n')
  sys.exit(not result.wasSuccessful())
